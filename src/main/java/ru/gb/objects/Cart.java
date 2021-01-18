@@ -29,4 +29,8 @@ public class Cart {
     {
         this.productList.remove(id);
     }
+
+    public ArrayList<Integer> getProductIdList() {
+        return productList;
+    }
 }
