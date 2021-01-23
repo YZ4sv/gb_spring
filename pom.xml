@@ -23,6 +23,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+<!--            jetty -->
+<!--            <artifactId>spring-boot-starter-jetty</artifactId>-->
+<!--            undertow -->
+<!--            <artifactId>spring-boot-starter-undertow</artifactId>-->
         </dependency>
 
         <dependency>
