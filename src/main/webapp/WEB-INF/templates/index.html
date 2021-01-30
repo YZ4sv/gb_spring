@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
+        <a th:href="@{/add-product}" th:text="Добавить_товар"/>
         <table border="1">
             <tr th:each="product: ${productList}">
                 <td th:text="${product.id}" />
                 <td th:text="${product.name}" />
                 <td th:text="${product.cost}" />
                 <td>
-                    <a th:href="@{/product(id=${product.id})}" th:text="Просмотр">
+                    <a th:href="@{/product(id=${product.id})}" th:text="Просмотр"/>
                 </td>
             </tr>
         </table>

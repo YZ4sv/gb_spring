@@ -4,8 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
+import ru.gb.objects.Product;
 import ru.gb.repositories.ProductRepository;
 
 @Controller
@@ -34,5 +37,19 @@ public class HomeController {
         model.addAttribute("product", product);
 
         return "product";
+    }
+
+    @GetMapping("/add-product")
+    public String addProductForm(Model model) {
+        model.addAttribute("product", new Product());
+
+        return "add-product-form";
+    }
+
+    @PostMapping("/add-product")
+    public String addProduct(@ModelAttribute Product product, Model model) {
+        this.productRepository.addProduct(product);
+
+        return "done";
     }
 }

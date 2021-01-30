@@ -27,4 +27,9 @@ public class ProductRepository {
     public Product getById(Integer id) {
         return list.get(id);
     }
+
+    // ╮(￣ω￣;)╭
+    public void addProduct(Product product) {
+        this.list.put(product.getId(), product);
+    }
 }
