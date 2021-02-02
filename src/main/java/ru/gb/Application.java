@@ -1,11 +1,21 @@
 package ru.gb;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import ru.gb.entity.Product;
+import ru.gb.services.ProductService;
 
-@SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        var service = new ProductService();
+
+        var firstProduct = new Product("Test", 123);
+
+        service.saveOrUpdate(firstProduct);
+
+        var secondProduct = service.findProduct(1);
+        secondProduct.setPrice(125);
+
+        service.saveOrUpdate(secondProduct);
+
+        service.deleteById(firstProduct.getId());
     }
 }
