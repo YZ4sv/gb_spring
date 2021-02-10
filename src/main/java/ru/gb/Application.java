@@ -17,5 +17,6 @@ public class Application {
         service.saveOrUpdate(secondProduct);
 
         service.deleteById(firstProduct.getId());
+
     }
 }
