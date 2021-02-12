@@ -1,6 +1,8 @@
 package ru.gb.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -52,4 +54,20 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+//    @ManyToMany(cascade = { CascadeType.ALL })
+//    @JoinTable(
+//            name = "customer_product_relation",
+//            joinColumns = { @JoinColumn(name = "product_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "customer_id") }
+//    )
+//    Set<Customer> customers = new HashSet<>();
+//
+//    public void setCustomers(Set<Customer> customers) {
+//        this.customers = customers;
+//    }
+//
+//    public Set<Customer> getCustomers() {
+//        return customers;
+//    }
 }

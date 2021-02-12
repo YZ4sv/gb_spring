@@ -3,6 +3,8 @@ package ru.gb.utils;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import ru.gb.entity.Customer;
+import ru.gb.entity.CustomerProduct;
 import ru.gb.entity.Product;
 
 import javax.persistence.EntityManagerFactory;
@@ -19,6 +21,8 @@ public class HibernateSessionFactoryUtil {
                 Configuration configuration = new Configuration().configure("hibernate.xml");
 
                 configuration.addAnnotatedClass(Product.class);
+                configuration.addAnnotatedClass(Customer.class);
+                configuration.addAnnotatedClass(CustomerProduct.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 
