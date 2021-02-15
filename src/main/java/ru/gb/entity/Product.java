@@ -55,19 +55,19 @@ public class Product {
         this.price = price;
     }
 
-//    @ManyToMany(cascade = { CascadeType.ALL })
-//    @JoinTable(
-//            name = "customer_product_relation",
-//            joinColumns = { @JoinColumn(name = "product_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "customer_id") }
-//    )
-//    Set<Customer> customers = new HashSet<>();
-//
-//    public void setCustomers(Set<Customer> customers) {
-//        this.customers = customers;
-//    }
-//
-//    public Set<Customer> getCustomers() {
-//        return customers;
-//    }
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "customer_product_relation",
+            joinColumns = {@JoinColumn(name = "product_id")},
+            inverseJoinColumns = {@JoinColumn(name = "customer_id")}
+    )
+    Set<Customer> customers = new HashSet<>();
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
 }

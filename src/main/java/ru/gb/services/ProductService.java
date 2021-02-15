@@ -1,10 +1,12 @@
 package ru.gb.services;
 
+import org.springframework.stereotype.Service;
 import ru.gb.dao.ProductDao;
 import ru.gb.entity.Product;
 
 import java.util.List;
 
+@Service
 public class ProductService {
     private final ProductDao productDao = new ProductDao();
 

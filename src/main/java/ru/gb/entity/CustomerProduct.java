@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name = "customer_product_relation")
 public class CustomerProduct {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
     private Integer customer_id;
     private Integer product_id;
@@ -13,12 +15,19 @@ public class CustomerProduct {
     private Integer product_price;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "customer_id")
+    @JoinColumn(name = "customer_id")
+    @MapsId("customerId")
     private Customer customer;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "product_id")
-    private Product product;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "product_id", referencedColumnName = "id")
+//    @MapsId("productId")
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @OneToOne
+    @MapsId("fuckU")
+    @JoinColumn(name = "product_id")
+    public Product product;
 
     public void setId(Integer id) {
         this.id = id;

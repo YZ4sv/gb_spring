@@ -31,14 +31,14 @@ public class Customer {
         this.name = name;
     }
 
-//    @ManyToMany(mappedBy = "products")
-//    Set<Product> products = new HashSet<>();
-//
-//    public void setProducts(Set<Product> products) {
-//        this.products = products;
-//    }
-//
-//    public Set<Product> getProducts() {
-//        return products;
-//    }
+    @ManyToMany(mappedBy = "customers")
+    Set<Product> products = new HashSet<>();
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
 }
